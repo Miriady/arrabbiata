@@ -18,9 +18,8 @@ steps:
 
 trigger:
   event:
-    include:
-      - push
-      - pull_request
+    - push
+    - pull_request
 
 ---
 kind: pipeline
@@ -39,6 +38,5 @@ steps:
 
 trigger:
   event:
-    include:
-      - push
-      - pull_request
+    - push
+    - pull_request
