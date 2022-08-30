@@ -53,12 +53,12 @@ body:
         - Release (downloaded from Docker Hub)
         - Release (self built from "release" branch)
         - Latest (downloaded from Docker Hub with latest tag)
-        - Latest (selfbuilt from "main" branch)
+        - Latest (self built from "main" branch)
         - Dev (built with docker from any other branch)
     validations:
       required: true
   - type: textarea
-    id: description
+    id: environment
     attributes:
       label: "Environment"
       description: Please enter a detailed description of your environment.
