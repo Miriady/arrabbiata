@@ -1,0 +1,44 @@
+kind: pipeline
+type: docker
+name: static check
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: flake8 code validation
+    image: python:3.9-alpine
+    commands:
+      - make flake
+  - name: static type checking
+    image: python:3.9-alpine
+    commands:
+      - make mypy
+
+trigger:
+  event:
+    include:
+      - push
+      - pull_request
+
+---
+kind: pipeline
+type: docker
+name: test
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: run tests
+    image: python:3.9-alpine
+    commands:
+      - make test
+
+trigger:
+  event:
+    include:
+      - push
+      - pull_request
